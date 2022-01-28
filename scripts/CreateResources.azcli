@@ -1,0 +1,10 @@
+az login
+ 
+# az login --service-principal -u link -p password 
+# For automation use SP
+
+az cosmosdb create --name cloud-labs-cosmos-db --resource-group teamlabs-dev --subscription sub_guid
+
+az cosmosdb database create --name cloud-labs-cosmos-db --resource-group teamlabs-dev --db-name cloud-labs-coins-db
+
+az cosmosdb sql container create -g teamlabs-dev -a cloud-labs-cosmos-db -d cloud-labs-coins-db -n Coins --partition-key-path "/id" --throughput "400"

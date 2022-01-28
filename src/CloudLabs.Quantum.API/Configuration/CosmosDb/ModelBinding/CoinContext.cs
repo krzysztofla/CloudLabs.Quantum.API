@@ -16,5 +16,7 @@ public class CoinContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasDefaultContainer("Coins");
+        modelBuilder.Entity<Coin>()
+            .HasPartitionKey(c => c.id);
     }
 }
