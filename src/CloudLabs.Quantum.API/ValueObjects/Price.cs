@@ -1,3 +1,7 @@
 namespace CloudLabs.Quantum.API.ValueObjects;
 
-public record Price(int value, DateTime createdAt);
+public class Price
+{
+    public decimal Value { get; set; }
+    public DateTime CreatedAt { get; set; }
+}

@@ -16,23 +16,11 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ICoinService, CoinService>();
 builder.Services.AddScoped<ICoinRepository, CoinRepository>();
-builder.Services.AddScoped<IFakeDataInitializer, FakeDataInitializer>();
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
- 
-    var settings = new CosmosDbSettings();
-
-    builder.Configuration.GetSection("CosmosDb").Bind(settings);
-
-    if (settings.InitializeData)
-    {
-     var dataInitializer = app.Services.GetService<IFakeDataInitializer>();
-     dataInitializer.InitializeData();
-    }
-    
     app.UseSwagger();
     app.UseSwaggerUI();
 }

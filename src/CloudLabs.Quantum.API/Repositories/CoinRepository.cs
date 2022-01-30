@@ -1,3 +1,4 @@
+using CloudLabs.Quantum.API.Configuration.CosmosDb.DataInitializer;
 using CloudLabs.Quantum.API.Configuration.CosmosDb.ModelBinding;
 using CloudLabs.Quantum.API.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -35,6 +36,12 @@ public class CoinRepository : ICoinRepository
     public async Task AddCoin(Coin coin)
     {
         await _coins.AddAsync(coin);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task AddRange(List<Coin> coins)
+    {
+        await _coins.AddRangeAsync(coins);
         await _context.SaveChangesAsync();
     }
 

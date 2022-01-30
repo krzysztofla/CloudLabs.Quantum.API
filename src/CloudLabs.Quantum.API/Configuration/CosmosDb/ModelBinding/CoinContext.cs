@@ -1,3 +1,4 @@
+using CloudLabs.Quantum.API.Configuration.CosmosDb.DataInitializer;
 using CloudLabs.Quantum.API.Entities;
 using CloudLabs.Quantum.API.Settings;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +11,6 @@ public class CoinContext : DbContext
 
     public CoinContext(DbContextOptions<CoinContext> options) : base(options)
     {
-        
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
