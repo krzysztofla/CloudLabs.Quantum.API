@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5A589E7D-BD3B-401B-993C-BAE4DF32B219}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudLabs.Quantum.API", "src\CloudLabs.Quantum.API\CloudLabs.Quantum.API.csproj", "{137B5A04-6981-490E-9A02-D4E22EE096C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{137B5A04-6981-490E-9A02-D4E22EE096C6} = {5A589E7D-BD3B-401B-993C-BAE4DF32B219}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{137B5A04-6981-490E-9A02-D4E22EE096C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{137B5A04-6981-490E-9A02-D4E22EE096C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{137B5A04-6981-490E-9A02-D4E22EE096C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{137B5A04-6981-490E-9A02-D4E22EE096C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
