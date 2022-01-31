@@ -1,8 +1,7 @@
 using CloudLabs.Quantum.API.Configuration.CosmosDb;
-using CloudLabs.Quantum.API.Configuration.CosmosDb.DataInitializer;
 using CloudLabs.Quantum.API.Repositories;
 using CloudLabs.Quantum.API.Services;
-using CloudLabs.Quantum.API.Settings;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddMediatR(typeof(Program));
 builder.Services.AddScoped<ICoinService, CoinService>();
 builder.Services.AddScoped<ICoinRepository, CoinRepository>();
 

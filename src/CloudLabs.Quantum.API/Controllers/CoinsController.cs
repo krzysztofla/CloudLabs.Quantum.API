@@ -1,5 +1,7 @@
 using CloudLabs.Quantum.API.Dto;
+using CloudLabs.Quantum.API.Queries;
 using CloudLabs.Quantum.API.Services;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web.Resource;
@@ -16,17 +18,27 @@ public class CoinsController : ControllerBase
 
     private readonly ICoinService _coinService;
 
-    public CoinsController(ILogger<CoinsController> logger, ICoinService coinService)
+    private readonly IMediator _mediator;
+
+    public CoinsController(ILogger<CoinsController> logger, ICoinService coinService, IMediator mediator)
     {
         _logger = logger;
         _coinService = coinService;
+        _mediator = mediator;
     }
-    
+
     [HttpPost()]
-    public async Task<ActionResult> Post([FromBody]CoinDto coin, CancellationToken token)
+    public async Task<ActionResult> Post([FromBody] CoinDto coin, CancellationToken token)
     {
-        await _coinService.Add(coin);
+        await _coinService.AddCoin(coin);
         return Ok();
     }
-    
+
+    [HttpGet()]
+    public async Task<IActionResult> Get([FromQuery]Guid id)
+    {
+        var query = new GetCoinQuery(id);
+        var result = await _mediator.Send(query);
+        return Ok(result);
+    }
 }

@@ -9,6 +9,5 @@ public interface ICoinRepository
     Task AddCoin(Coin coin);
     Task AddRange(List<Coin> coins);
     Task RemoveCoin(Coin guid);
-    
     Task AddPrice(Coin price);
 }
