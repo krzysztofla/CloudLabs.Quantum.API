@@ -14,6 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddMediatR(typeof(Program));
+builder.Services.AddScoped<IInMemoryCacheService, InMemoryCacheService>();
 builder.Services.AddScoped<ICoinService, CoinService>();
 builder.Services.AddScoped<ICoinRepository, CoinRepository>();
 
