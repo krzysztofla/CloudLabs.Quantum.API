@@ -1,6 +1,6 @@
 namespace CloudLabs.Quantum.API.Services;
 
-public interface IInMemoryCacheService
+public interface ICacheService
 {
     Task<string> GetCachedDataAsync(string key);
     Task SetCacheDataAsync(string key, string value);

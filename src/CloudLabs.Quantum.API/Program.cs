@@ -1,22 +1,11 @@
-using CloudLabs.Quantum.API.Configuration.CosmosDb;
-using CloudLabs.Quantum.API.Repositories;
-using CloudLabs.Quantum.API.Services;
-using MediatR;
+using CloudLabs.Quantum.API.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 //     .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAdB2C"));
 
-builder.Services.InstallCosmosDb(builder.Configuration);
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-builder.Services.AddMediatR(typeof(Program));
-builder.Services.AddScoped<IInMemoryCacheService, InMemoryCacheService>();
-builder.Services.AddScoped<ICoinService, CoinService>();
-builder.Services.AddScoped<ICoinRepository, CoinRepository>();
+builder.Services.InstallApplicationTools(builder.Configuration);
 
 var app = builder.Build();
 

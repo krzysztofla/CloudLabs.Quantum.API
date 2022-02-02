@@ -22,11 +22,11 @@ public class CoinsController : ControllerBase
 
     private readonly ICoinService _coinService;
 
-    private readonly IInMemoryCacheService _cache;
+    private readonly ICacheService _cache;
 
     private readonly IMediator _mediator;
 
-    public CoinsController(ILogger<CoinsController> logger, ICoinService coinService, IMediator mediator, IInMemoryCacheService cache)
+    public CoinsController(ILogger<CoinsController> logger, ICoinService coinService, IMediator mediator, ICacheService cache)
     {
         _logger = logger;
         _coinService = coinService;
@@ -60,6 +60,6 @@ public class CoinsController : ControllerBase
     public async Task<IActionResult> GetCacheData([FromRoute] string key)
     {
         var coin = await _cache.GetCachedDataAsync(key);
-        return Ok(JsonConvert.DeserializeObject(coin));
+        return Ok(JsonConvert.DeserializeObject<Coin>(coin));
     }
 }

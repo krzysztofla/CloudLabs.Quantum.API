@@ -2,7 +2,7 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace CloudLabs.Quantum.API.Services;
 
-public class InMemoryCacheService : IInMemoryCacheService
+public class MemoryCacheService : ICacheService
 {
     private readonly MemoryCache _cache = new MemoryCache(new MemoryCacheOptions());
     
