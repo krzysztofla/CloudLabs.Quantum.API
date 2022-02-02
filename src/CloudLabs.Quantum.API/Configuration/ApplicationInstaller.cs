@@ -1,3 +1,4 @@
+using CloudLabs.Quantum.API.BackgroundTasks;
 using CloudLabs.Quantum.API.Configuration.CosmosDb;
 using CloudLabs.Quantum.API.Repositories;
 using CloudLabs.Quantum.API.Services;
@@ -20,6 +21,7 @@ public static class ApplicationInstaller
         services.AddScoped<ICoinRepository, CoinRepository>();
         services.AddSingleton<IConnectionMultiplexer>(x =>
             ConnectionMultiplexer.Connect(configuration.GetValue<string>("RedisConnection")));
+        services.AddHostedService<RedisSubscriber>();
         return services;
     }
 }
