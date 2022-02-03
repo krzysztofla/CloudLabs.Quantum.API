@@ -9,7 +9,8 @@ namespace CloudLabs.Quantum.API.Configuration;
 
 public static class ApplicationInstaller
 {
-    public static IServiceCollection InstallApplicationTools(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection InstallApplicationTools(this IServiceCollection services,
+        IConfiguration configuration)
     {
         services.AddControllers();
         services.AddEndpointsApiExplorer();

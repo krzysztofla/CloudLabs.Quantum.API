@@ -14,9 +14,7 @@ public class RedisSubscriber : BackgroundService
     protected override Task ExecuteAsync(CancellationToken stoppingToken)
     {
         var subscriber = _multiplexer.GetSubscriber();
-        return subscriber.SubscribeAsync("messages", (channel, value) =>
-        {
-            Console.WriteLine($"Message payload was: {value}");
-        } );
+        return subscriber.SubscribeAsync("messages",
+            (channel, value) => { Console.WriteLine($"Message payload was: {value}"); });
     }
 }

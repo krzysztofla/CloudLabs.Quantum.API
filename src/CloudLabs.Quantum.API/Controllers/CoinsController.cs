@@ -68,7 +68,7 @@ public class CoinsController : ControllerBase
         var coin = await _cache.GetCachedDataAsync(key);
         return Ok(JsonConvert.DeserializeObject<Coin>(coin));
     }
-    
+
     [HttpPost("redis/publish")]
     public async Task<IActionResult> PublishMessageOnRedis([FromBody] string message)
     {
